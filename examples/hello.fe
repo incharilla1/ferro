@@ -1,0 +1,28 @@
+// C functions come from the platform C runtime ("c" = msvcrt.dll / libc.so.6)
+extern "c" int abs(int x);
+
+int fib(int n) {
+    if (n < 2) {
+        return n;
+    }
+    return fib(n - 1) + fib(n - 2);
+}
+
+void main() {
+    int[10] a;
+    int i = 0;
+    while (i < 10) {
+        a[i] = fib(i);
+        i = i + 1;
+    }
+    print("fib(9) = ");
+    println(a[9]);
+    long big = 9000000000;
+    println(big * 2);
+    println(-17 / 5);
+    println(10 > 3 && !false);
+    unsafe {
+        println(abs(-42));
+    }
+    println("done");
+}
